@@ -1,0 +1,22 @@
+Какие из этих конструкций можно указывать в деструкторе, не оборачивая их в try-catch блок.
+
+// 1 
+throw std::runtime_error("Some message");
+
+// 2
+int * data = new int[size];
+
+// 3+
+int * data = new (std::nothrow) int[size];
+
+// 4 +
+delete [] data; 
+
+// 5
+// data_ - это поле класса типа std::vector<string>
+for (auto s : data_) { len += s.size(); }
+
+// 6 +
+// data_ - это поле класса типа std::vector<string> 
+size_t len = 0;
+for (auto & s : data_) { len += s.size(); } 

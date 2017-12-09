@@ -25,7 +25,8 @@ int main(){
     std::cout << std::endl;
     // определение переменной
 //    auto square_fun = [](int& a){a *= a;};
-    std::function<void (int&)> square_fun = [](int& a){a *= a;};
+//    std::function<void (int&)> square_fun = [](int& a){a *= a;};
+    std::function<int (int&)> square_fun = [](int& a) -> int{return a *= a;};
     for_each_int(m, m + 10, square_fun); // теперь m = {1,4,9,16,25,36,49,64,81,100};
     for(int x : m)
         std::cout << x << " ";
